@@ -1,0 +1,89 @@
+/* globals.css with Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 font-sans;
+  }
+}
+
+@layer components {
+  /* Custom button component */
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-blue-500 font-semibold py-3 px-6 rounded-lg border-2 border-blue-500 transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-small {
+    @apply py-2 px-4 text-sm;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300;
+  }
+
+  /* Form components */
+  .form-input {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white;
+  }
+
+  .form-input:focus {
+    @apply transform -translate-y-0.5 shadow-md;
+  }
+
+  /* Card components */
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden;
+  }
+
+  .card-header {
+    @apply bg-blue-500 text-white px-6 py-4 flex justify-between items-center;
+  }
+
+  .card-content {
+    @apply p-6;
+  }
+
+  /* Alert components */
+  .alert-error {
+    @apply bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4 text-center;
+  }
+
+  .alert-success {
+    @apply bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-4 text-center;
+  }
+
+  /* User card component */
+  .user-card {
+    @apply bg-blue-50 rounded-lg p-4 border border-blue-200 transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  }
+
+  .user-card.current-user {
+    @apply bg-blue-100 border-blue-400 border-2 transform scale-105;
+  }
+
+  /* Stats component */
+  .stat-item {
+    @apply bg-blue-50 rounded-lg p-6 text-center border border-blue-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+  }
+}
+
+/* Custom animations */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  @apply w-8 h-8 border-4 border-blue-200 border-l-blue-500 rounded-full;
+  animation: spin 1s linear infinite;
+}
