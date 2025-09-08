@@ -1,4 +1,4 @@
-// lib/api.js - API integration with your Spring Boot backend
+// lib/api.js - Updated API integration with username parameter
 import axios from "axios";
 
 const API_BASE = "http://localhost:8081/api/auth";
@@ -60,9 +60,10 @@ export const authAPI = {
     }
   },
 
-  getUsers: async () => {
+  getUsers: async (username) => {
     try {
-      const response = await apiClient.get("/users");
+      const params = username ? { username } : {};
+      const response = await apiClient.get("/users", { params });
       return response.data;
     } catch (error) {
       throw error;
